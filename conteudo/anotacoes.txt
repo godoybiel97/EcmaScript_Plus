@@ -1,0 +1,25 @@
+ECMASCRIPT 6+
+-------------
+Esse conteúdo aborda as atualizações do EcmaScript entre os anos de 2015 e 2021, sendo eles:
+    - ES 6: 2015
+    - ES 7: 2016
+    - ES 8: 2017
+    - ES 9: 2018
+    - ES 10: 2019
+    - ES 11: 2020
+    - ES 12: 2021
+
+
+ECMASCRIPT-6 (2015)
+-------------------
+- Generators: são funções especiais que podem ser executadas, pausadas e continuadas, porém, não é muito usual
+    - function* generator() {}: essa função sempre será acompanhada por *
+
+    - O uso do yeld está atrelado a função next():
+        - function* generator() {
+            yeld "Algum valor"
+        }
+        let meuGenerator = generator()
+        meuGenerator.next()
+
+        - next() executa o valor que yeld indica e o valor anterior
