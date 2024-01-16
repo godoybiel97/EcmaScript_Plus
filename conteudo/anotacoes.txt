@@ -90,3 +90,18 @@ ECMASCRIPT-7 (2016)
 
         let retorno4 = array.includes("Abacaxi")
         console.log(`O valor é falso: ${retorno4}`)
+
+
+- Operador exponencial: é uma nova feature, visto que antigamente era utilizada a classe Math
+    - let resultado = Math.pow(base, expoente)
+
+    - let resultado = base ** expoente
+
+
+- Async/ await: permite trabalhar com funções assíncronas de maneira sequencial, é muito utilizada em requisições HTTPS
+    - Permitem ordenar as execuções de acordo com a ordem de prioridade de resposta:
+      
+    - Têm como característica serem definidas antes da palavra reservada "function":
+        - async function minhaFuncao()
+
+        - await nomeVariavel ou nomeFuncao
