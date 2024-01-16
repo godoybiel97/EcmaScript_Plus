@@ -22,4 +22,71 @@ ECMASCRIPT-6 (2015)
         let meuGenerator = generator()
         meuGenerator.next()
 
-        - next() executa o valor que yeld indica e o valor anterior
+        - next(): executa o valor que yeld indica e o valor anterior
+
+
+- Promises: é um objeto utilizado para solucionar processamentos assíncronos, cujo valor pode estar disponível agora, no futuro ou nunca 
+    - Esse conceito tende a substituir as funções callbacks, porém, elas ainda podem ser utilizadas
+        - É comum, e mais usual, utilizar esse fundamento em requisições HTTPS ou APIs
+
+    - Recebe dois parâmetros: new Promise((resolve, reject) => {}):
+        - resolve(): retorno de sucesso
+        
+        - reject(): retorno rejeitado
+
+    - Apresenta 3 status:
+        - Pending: enquanto resolve ou reject são executados a promise permanece pendente
+
+        - Fulfilled: quando há sucesso na operação (concluída)
+
+        - Rejected: quando há falha na operação (rejeitada)
+
+    - Utiliza tentativa e erro, podendo precaver de erros inesperados:
+        - new Promise((resolve, reject) => {
+            try {
+                //Código
+                throw new Error("Erro inesperado")
+
+                //Código
+                resolve("Sucesso")
+            }
+            catch(error) {
+                //Código
+                reject(error)
+            }
+        })
+
+        - then(): é utilizado para dar sequência no código que retornar como sucesso. Automaticamente ele captura a solução de resolve() e retorna seu valor
+            - .then(dados => {
+                console.log(dados)
+            })
+
+            - Quando utilizado vários then(), é possível passar como parâmetro o retorno do then() anterior:
+                - .then(dados => {
+                    console.log(dados)
+                    return "Parâmetro"
+                }). then(param => {
+                    //O valor será Parâmetro
+                    console.log(param)
+                })
+
+            - Não é comum e usual usar muitas sequências de then()
+
+
+ECMASCRIPT-7 (2016)
+-------------------
+- Array.prototype.includes: é um método para facilitar a verificação de um determinado valor dentro de um array
+    - Utilizando o método find(): é necessário uma função callback para percorrer os índices
+        let array = ["Abacaxi", "Banana", "Cereja"]
+        let retorno1 = array.find(item => item == "Abacaxi")
+        console.log(`O valor é encontrado: ${retorno1}`)
+
+        let retorno2 = array.find(item => item == "Abacate")
+        console.log(`O valor não é encontrado, logo é undefined: ${retorno2}`)
+
+    - Utilizando o método includes: retorna true ou false e apenas exige o valor que deve ser procurado
+        let retorno3 = array.includes("Abacaxi")
+        console.log(`O valor é verdadeiro: ${retorno3}`)
+
+        let retorno4 = array.includes("Abacaxi")
+        console.log(`O valor é falso: ${retorno4}`)
