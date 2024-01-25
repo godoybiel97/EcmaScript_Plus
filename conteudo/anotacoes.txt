@@ -105,3 +105,33 @@ ECMASCRIPT-7 (2016)
         - async function minhaFuncao()
 
         - await nomeVariavel ou nomeFuncao
+
+
+ECMASCRIPT-8 (2017)
+-------------------
+- Object.values: permite retornar um array com base nos valores das propriedades de um objeto
+    - Cada atributo torna-se um índice numerado como característica de um array
+
+    - let objeto = ()
+      Object.values(objeto)
+
+
+- Object.entries: permite retornar um array numerado trazendo os atributos do objeto como chave e valor posicionados em índices
+    - let objeto = {
+        nome: "Gabriel",
+        sobreNome: "Godoy",
+        idade: 26,
+    }
+    Object.entries(objeto)
+
+
+- Object.getOwnPropertyDescriptors: permite analisar os descritores de propriedades de um determinado objeto
+    - let objeto = {}
+    Object.getOwnPropertyDescriptors(objeto)
+
+    - Após utiliza-lo, ele retorna mais 3 propriedades além das já existem:
+        - Configurable: quando definido como false, o valor das propriedades não poderão ser deletadas
+
+        - Enumerable: quando definido como false, o valor das propriedades não serão exibidas em laços de repetição
+
+        - Writable: quando definido como false, o valor das propriedades não poderão ser modificadas
