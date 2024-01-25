@@ -135,3 +135,13 @@ ECMASCRIPT-8 (2017)
         - Enumerable: quando definido como false, o valor das propriedades não serão exibidas em laços de repetição
 
         - Writable: quando definido como false, o valor das propriedades não poderão ser modificadas
+
+
+- String padStart e padEnd: métodos estáticos utilizados para strings
+    - padStart: adiciona caracteres à esquerda da string já definida
+        - let codigo = "1000"
+        codigo = codigo.padStart(quantidade de caracteres, caracter a ser utilizado)
+
+    - padEnd: adiciona caracteres à direita da string já definida
+        - let codigo = "1000"
+        codigo = codigo.padEnd(quantidade de caracteres, caracter a ser utilizado)
