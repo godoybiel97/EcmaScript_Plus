@@ -145,3 +145,85 @@ ECMASCRIPT-8 (2017)
     - padEnd: adiciona caracteres à direita da string já definida
         - let codigo = "1000"
         codigo = codigo.padEnd(quantidade de caracteres, caracter a ser utilizado)
+
+
+
+ECMASCRIPT-9 (2018)
+-------------------
+- Asynchronous iteration: é uma forma de combinar o uso de async e await em laços de repetição
+    - É utilizado o mesmo conceito de assincronismo, porém, armazenando uma função assíncrona numa variável executável
+
+
+- Promise finally: esse é método pode ser utilizado para Promises resolvidas e rejeitadas
+    - Ele tem como função concluir ambos os métodos, por conta disso ele não recebe parâmetro, como por exemplo o then e catch
+
+    - let p = new Promise((resolve, reject) => {
+        if(true) {
+            reject("Rejeitada")
+        }
+        resolve()
+    }).then((sucesso) => console.log(sucesso))
+    .catch((falha) => console.log(falha))
+    .finally(() => {console.log("Fluxo rejeitado ou resolvido")})
+
+
+
+ECMASCRIPT-10 (2019)
+-------------------
+- Array flat: é utilizado para tornar array multidimensionais em lineares
+    - Ele recebe um parâmetro que significa o nível de profundidade das dimensões dos arrays
+
+    - let array = [1, 2, 3, 4, [5, 6, 7, 8], 9, 10, [11, 12, [13, 14, [15, 16]]]]
+    let array2 = array.flat(3)
+
+
+- Array flatmap: é a combinação dos métodos map e flat, percorrendo cada item dimensional e retornando um array nivelado
+    - Vale lembrar que o flatMap combina um nível de profundidade
+
+
+- Strings trimStart e trimEnd: são métodos exclusivos de strings
+    - trimStart: recorta caracteres à esquerda
+        - let texto = "     texto"
+        texto.trimStart()
+
+    - trimEnd: recorta caracteres à direita
+        - let texto = "texto     "
+        texto.trimEnd()
+
+
+- Object.fromEntries: é um método que permite transformar array em objeto
+    - Nessa versão do ES não há suporte para arrays associativos, por isso esse método funciona com arrays que têm a característica de chave e valor
+
+    - Object.fromEntries(algumArray)
+
+
+- Function toString: esse método está presente em todos os objetos e é herdado de Object.prototype
+    - Pode ser utilizado para retornar elementos textuais e sobrescrever métodos
+
+    - Utilizando somente o método toString() ele retorna um objeto em questão e o seu tipo:
+        [object Object] / [object Math]
+
+    - class Carro {
+        constructor(marca, modelo) {
+            this.marca = marca,
+            this.modelo = modelo
+        }
+        toString() {
+            return `Um carro da marca ${this.marca} e modelo ${this.modelo}`
+        }
+    }
+    let carro = new Carro("Jeep", "Renegade")
+
+
+- Catch com parâmetro opcional: a exceção de erro que era utilizada não é mais obrigatório
+    - Antes: try {
+        throw "Um erro"
+    } catch(error) {
+        console.log(error)
+    }
+
+    - Depois: try {
+        throw "Um erro"
+    } catch {
+        console.log("Fim !")
+    }
