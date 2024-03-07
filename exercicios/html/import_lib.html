@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Import</title>
+</head>
+
+<script type="module">
+    import {saudacao, cep} from "../js/lib.mjs"
+
+    //Utilizando o conteúdo importado
+    let saud = document.getElementById("saudacao")
+    saud.addEventListener("click", () => {
+        console.log(saudacao())
+    })
+
+    let end = document.getElementById("cep")
+    end.addEventListener("click", () => {
+        let cons = document.getElementById("consulta")
+        console.log(cep(cons.value).then(dados => console.log(dados)))
+    })
+
+    
+    
+</script>
+
+<body>
+    <button id="saudacao" type="button">Saudação</button>
+    <hr>
+    <input id="consulta" type="text" placeholder="Digite seu cep">
+    <button id="cep" type="submit">Consultar</button>
+</body>
+</html>

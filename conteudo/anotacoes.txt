@@ -10,6 +10,7 @@ Esse conteúdo aborda as atualizações do EcmaScript entre os anos de 2015 e 20
     - ES 12: 2021
 
 
+
 ECMASCRIPT-6 (2015)
 -------------------
 - Generators: são funções especiais que podem ser executadas, pausadas e continuadas, porém, não é muito usual
@@ -73,6 +74,17 @@ ECMASCRIPT-6 (2015)
             - Não é comum e usual usar muitas sequências de then()
 
 
+- WeakMap: é uma coleção de objetos que possui referência e vazamento de memória
+    - Ao passar um valor para um objeto e depois redefiní-lo para nulo, a forma de acessá-lo pode estar ligada ao vazamento de memória
+
+    - Não é possível iterar pela coleção de objetos que utiliza WeakMap
+
+    - O Garbage Collector é responsável por limpar a memória do JS durante a execução de códigos
+    
+    - Não é uma funcionalidade muito usual no dia-a-dia
+
+
+
 ECMASCRIPT-7 (2016)
 -------------------
 - Array.prototype.includes: é um método para facilitar a verificação de um determinado valor dentro de um array
@@ -105,6 +117,7 @@ ECMASCRIPT-7 (2016)
         - async function minhaFuncao()
 
         - await nomeVariavel ou nomeFuncao
+
 
 
 ECMASCRIPT-8 (2017)
@@ -227,3 +240,50 @@ ECMASCRIPT-10 (2019)
     } catch {
         console.log("Fim !")
     }
+
+
+
+ECMASCRIPT-11 (2020)
+--------------------
+- Dynamic import: está relacionado à importação de scripts, geralmente bibliotecas, que serão utitlizados em outros scripts
+    - O arquivo que será importado pode ser nomeado com a extensão .mjs, que significa módulo javascript, um padrão utilizado para reconhecer os arquivos referenciados
+
+
+- Operador de visibilidade private: define atributos e métodos da classe como privados
+    - É utilizado "#" para definí-los:
+        - class Pessoa {
+            #humor = null
+            constructor(nome) {
+                this.nome = nome
+            }
+            #mudarHumor() {
+                this.#humor = Math.floor(Math.random() * 2)
+            }
+        }
+
+        - Geralmente atributos privados não são declarados no construtor
+
+
+- Optional chainig: verifica se um atributo existe dentro de um objeto 
+    - Se existir a aplicação segue o fluxo normal
+
+    - Se não existir a aplicação é interrompida e a lógica seguinte não é executada
+
+    - É representado por "?"
+
+
+- Promise allSettled: pertence a objetos do tipo promise
+    - Retorna uma coleção de promessas assim que são concluídas, independente do estado que elas se encontram:
+        - const promise1 = new Promise()...
+          const promise2 = new Promise()...
+          const promise3 = new Promise()...
+          const promises = [promise1, promise2, promise3]
+          Promise.allSettled(promises)
+
+
+- Nullish coalescing: é um operador lógico que assemelha-se ao OR 
+    - Operador OR: ||
+        - Desconsidera alguns dados como números, strings vazias e entre outros
+
+    - Operador nullish: ??
+        - Considera dados que OR desconsidera
