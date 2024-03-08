@@ -283,7 +283,79 @@ ECMASCRIPT-11 (2020)
 
 - Nullish coalescing: é um operador lógico que assemelha-se ao OR 
     - Operador OR: ||
-        - Desconsidera alguns dados como números, strings vazias e entre outros
+        - Desconsidera alguns dados como números (0), strings vazias, null e undefined
 
     - Operador nullish: ??
         - Considera dados que OR desconsidera
+
+
+
+ECMASCRIPT-12 (2021)
+--------------------
+- Nullish logical assignment: durante o processo de atribuição é verificado se o valor é null ou undefined
+    - let a = "Letra A"
+    let b = null
+    a?? = "Outra letra"
+    b?? = "Letra B"
+
+
+- Operador OR logical assignment: ||
+    - Desconsidera alguns dados como números (0), strings vazias, null e undefined
+        - let a = "Letra A"
+        let b = null
+        a|| = "Outra letra"
+        b|| = "Letra B"
+
+
+- Operador AND logical assignment: &&
+    - Desconsidera alguns dados como números (0), strings vazias, null e undefined
+        - let a = "Letra A"
+        let b = null
+        a&& = "Outra letra"
+        b&& = "Letra B"
+
+
+- Separador numérico: permite utilizar o " _ " para separar valores numéricos e melhorar a elegibilidade
+    - Usado para inteiros: 1 trilhão ou 1000000000000
+        - let num = 1_000_000_000_000
+        console.log(num)
+
+    - Usado para decimais: 1575720.25
+        - let num = 1_575_720.25
+        console.log(num)
+    
+    - Usado para binários:
+        - let bin = 0b1010_1010_1010
+        consolelog(bin)
+
+    - Usado para hexadecimais:
+        - let hex = 0xA_B_C_D_E_F
+        console.log(hex)
+
+    - Usado para octadecimais:
+        - let octa = 0o2_2_3_3_5
+        console.log(octa)
+    
+    - Possuí algumas restrições de uso:
+        - Não é permitido começar com " _ ": _100
+
+        - Não é permitido terminar com " _ ": 100_
+
+        - Não é permitido começar com 0: 0_5
+
+        - Não é permitido usar em sequência " __ ": 100__000
+
+
+- String replaceAll: esse método permite localizar e substituir todas as ocorrências de uma determinada string por outra string
+    - O método recebe dois parâmetros: replaceAll(<Valor a ser substituído>, <Valor que substituirá>)
+
+    - let texto = "Gabriel é um dev front-end. Qualquer dúvida entre em contato com o Gabriel"
+    let texto2 = texto.replaceAll("Gabriel", "Guilherme")
+    console.log(texto2)
+
+
+- Promise any: esse método recebe uma coleção de promises e dispara uma ação quando a primeira promise da coleção é resolvida
+    - Caso todos sejam rejeitadas, um erro é lançado e capturado pelo método .catch
+
+
+
