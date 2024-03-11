@@ -359,3 +359,56 @@ ECMASCRIPT-12 (2021)
 
 
 
+ECMASCRIPT-13 (2022)
+--------------------
+- Class field declarations: essa nova fetaure permite declarar varáveis fora do construtor
+    - Antes do ES13: 
+    class Pessoa {
+        constructor() {
+            this.nome = "Gabriel"
+            this.idade = 27
+        }
+    }
+
+    - Depois do ES13:
+    class Pessoa {
+        nome = "Gabriel"
+        idade = 27
+        constructor() {}
+    }
+
+
+- Static class fields and methods: atribuição da propriedade static para classes, atributos e métodos
+    - Utilizando essa propriedade é possível compartilhar ou acessar dados de uma classe sem a necessidade de instancia-la
+
+
+- Static class block: classe estática que é inicializada a partir do momento que é configurada
+    - É possível compartilhar atributos, métodos, privados ou não dentro da própria classe
+
+    - Vàrios blocos estáticos podem ser criados dentro da classe e serão executados em sequência
+
+
+- Método de indexação at(): forma simplificada de acesso a strings e arrays
+    - Strings: at() recebe um parâmetro referente ao índice que for selecionado para retornar um caracter do texto
+    let curso = "Web completo"
+    console.log(curso.at(0)) ---> O retorno será W
+
+    - Arrays: at() recebe um parâmetro referente ao índice que for selecionado para retornar um conteúdo do array
+    let cursos = ["UX Design", "Typescript", "NodeJs"]
+    console.log(cursos.at(0)) ---> O retorno será UX Design
+
+
+- Object.hasOwn: funcionalidade utilizada em objetos e verifica se um atributo está contido ou não, ou seja, seu retorno é true ou false
+
+
+
+ECMASCRIPT-14 (2023)
+--------------------
+- Novos métodos para arrays foram adicionados. São baseados em features antigas, mas não alteram o valor original do array
+    - toReversed(): inverte os dados do array sem alterar o array original
+
+    - toSorted(): ordenada os dados do array sem alterar o array original
+
+    - toSpliced(): recorta os dados do array sem alterar o array original
+
+    - with(): substitui um dado do array sem alterar o array original
